@@ -7,10 +7,17 @@ public class InterpolationSearch {
 	The Interpolation Search is an improvement over Binary Search for instances, where the values in a sorted array are uniformly distributed. 
 	Binary Search always goes to the middle element to check. On the other hand, 
 	interpolation search may go to different locations according to the value of the key being searched. 
-	For example, if the value of the key is closer to the last element, interpolation search is likely to start search toward the end side.*/
+	For example, if the value of the key is closer to the last element, interpolation search is likely to start search toward the end side.
+	
+	formula : position = low+[(high-low)/array[high]-array[low] * (element - array[low])];
+	
+	*/
 	private static int search(int[] arr, int low, int high, int element) {
 		while(low<=high && element>=arr[low] && element<=arr[high]){
-			int position = low+(( (high-low)/(arr[high]-arr[low]))*(element-arr[low]));
+			
+			double d = (double)(high-low)/(arr[high]-arr[low]);
+			
+			int position = (int) (low + (d *(element - arr[low])));
 			
 			if(element==arr[position]){
 				return position;
@@ -28,12 +35,12 @@ public class InterpolationSearch {
 	}
 
 	public static void main(String[] args) {
-		int[] arr = {1,3,5,8,9,10,12,24}; 
+		int[] arr = {1,2,4,6,7,10,11,14,15}; 
 
 		int high = arr.length-1;
 		int low = 0;
 		
-		int element = 10;
+		int element = 4;
 		
 		int matchedElementIndex = InterpolationSearch.search(arr,low,high,element);
 		
