@@ -9,9 +9,6 @@ public class InterpolationSearch {
 	interpolation search may go to different locations according to the value of the key being searched. 
 	For example, if the value of the key is closer to the last element, interpolation search is likely to start search toward the end side.*/
 	private static int search(int[] arr, int low, int high, int element) {
-		
-		
-		
 		while(low<=high && element>=arr[low] && element<=arr[high]){
 			int position = low+(( (high-low)/(arr[high]-arr[low]))*(element-arr[low]));
 			
