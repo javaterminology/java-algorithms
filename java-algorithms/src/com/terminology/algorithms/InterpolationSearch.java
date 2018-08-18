@@ -40,7 +40,7 @@ public class InterpolationSearch {
 		int high = arr.length-1;
 		int low = 0;
 		
-		int element = 4;
+		int element = 15;
 		
 		int matchedElementIndex = InterpolationSearch.search(arr,low,high,element);
 		
